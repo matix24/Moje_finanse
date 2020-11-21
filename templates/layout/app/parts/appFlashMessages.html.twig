@@ -1,0 +1,18 @@
+<script>
+    {# read and display just one flash message type #}
+    {% for message in app.flashes('notice') %}
+        toastNotice('{{ message }}');
+    {% endfor %}
+
+    {% for message in app.flashes('error') %}
+        toastError('{{ message }}');
+    {% endfor %}
+
+    {% for message in app.flashes('success') %}
+        toastSuccess('{{ message }}');
+    {% endfor %}
+
+    {% for message in app.flashes('warning') %}
+        toastWarning('{{ message }}');
+    {% endfor %}
+</script>

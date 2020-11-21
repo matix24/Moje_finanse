@@ -1,0 +1,94 @@
+{% extends 'layout/app/app.html.twig' %}
+
+{% block title %}Edytuj adres{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+
+{% block body %}
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Dodaj adres</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="{{ url('app_index') }}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url('user_detail_index') }}">Ustawienia konta</a></li>
+                        <li class="breadcrumb-item active">Edytuj adres</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title"><i class="fas fa-plus"></i> Edytuj adres</h3>
+                    </div>
+                    <div class="card-body pad table-responsive">
+                        {{ form_start(form) }}
+                        {{ form_errors(form) }}
+                        <div class="form-group">
+                            {{ form_label(form.user_company_name) }}
+                            {{ form_widget(form.user_company_name) }}
+                            {{ form_errors(form.user_company_name) }}
+                        </div>
+                         <div class="form-group">
+                            {{ form_label(form.user_nip) }}
+                            {{ form_widget(form.user_nip) }}
+                            {{ form_errors(form.user_nip) }}
+                        </div>     
+                         <div class="form-group">
+                            {{ form_label(form.user_name) }}
+                            {{ form_widget(form.user_name) }}
+                            {{ form_errors(form.user_name) }}
+                        </div>        
+                        <div class="form-group">
+                            {{ form_label(form.user_address) }}
+                            {{ form_widget(form.user_address) }}
+                            {{ form_errors(form.user_address) }}
+                        </div>    
+                        <div class="form-group">
+                            {{ form_label(form.user_zip) }}
+                            {{ form_widget(form.user_zip) }}
+                            {{ form_errors(form.user_zip) }}
+                        </div>    
+                        <div class="form-group">
+                            {{ form_label(form.user_city) }}
+                            {{ form_widget(form.user_city) }}
+                            {{ form_errors(form.user_city) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.user_phone) }}
+                            {{ form_widget(form.user_phone) }}
+                            {{ form_errors(form.user_phone) }}
+                        </div>  
+                        <div class="form-group">
+                            <div class="form-check">
+                                {{ form_widget(form.is_default) }}
+                                {{ form_label(form.is_default) }}
+                                {{ form_errors(form.is_default) }}
+                            </div>
+                        </div>
+                        {{ form_widget(form.submit) }}
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </section>
+
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{ asset('dep/AdminLTE/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
+<script src="{{ asset('dep/AdminLTE/plugins/jquery-validation/additional-methods.min.js') }}"></script>
+<script src="{{ asset('dep/AdminLTE/plugins/jquery-validation/localization/messages_pl.min.js') }}"></script>
+<script src="{{ asset('view/app/js/user/user_detail/add_edit.js') }}"></script>
+{% endblock %}

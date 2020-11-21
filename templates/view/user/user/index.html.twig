@@ -1,0 +1,78 @@
+{% extends 'layout/app/app.html.twig' %}
+
+{% block title %}
+	Lista użytkowników
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('dep/AdminLTE/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('dep/AdminLTE/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+{% endblock %}
+
+{% block body %}
+	<section class="content-header">
+		<div class="container-fluid">
+			<div class="row mb-2">
+				<div class="col-sm-6">
+					<h1>Lista użytkowników</h1>
+				</div>
+				<div class="col-sm-6">
+					<ol class="breadcrumb float-sm-right">
+						<li class="breadcrumb-item">
+							<a href="{{ url('app_index') }}">Home</a>
+						</li>
+						<li class="breadcrumb-item active">Lista użytkowników</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Main content -->
+	<section class="content">
+		<div class="row">
+			<div class="col-12">
+				<table class="table table-bordered table-striped dataTable">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Imię</th>
+							<th>Nazwisko</th>
+							<th>E-mail</th>
+							<th>Role</th>
+							<th>Zweryfikowany?
+								<button class="btn btn-xs btn-secondary" data-toogle="tooltip" title="Użytkownik jest zweryfikowany kiedy potwierdził rejestrację klikając w link aktywacyjny lub został dodany przez administratora.">
+									<i class="far fa-question-circle"></i>
+								</button>
+							</th>
+							<th>Wyłączony?
+								<button class="btn btn-xs btn-secondary" data-toogle="tooltip" title="Jeżeli konto jest wyłączone to nie ma możliwości zalogowania.">
+									<i class="far fa-question-circle"></i>
+								</button>
+							</th>
+							<th>Data dodania</th>
+							<th>Data aktualizacji</th>
+							<th></th>
+						</tr>
+					</thead>
+
+				</table>
+			</div>
+		</div>
+	</section>
+
+	{% include "layout/app/parts/modals/confirmConfirm.html.twig" %}
+	{% include "layout/app/parts/modals/confirmDelete.html.twig" %}
+{% endblock %}
+
+{% block javascripts %}
+	<!-- DataTables -->
+	<script src="{{ asset('dep/AdminLTE/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+	<script src="{{ asset('dep/AdminLTE/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+	<script src="{{ asset('dep/AdminLTE/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+	<script src="{{ asset('dep/AdminLTE/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+	<script>
+		var userListUrl = '{{ url("user_dataTableJson") }}';
+	</script>
+	<script src="{{ asset('view/app/js/user/user/index.js') }}"></script>
+{% endblock %}

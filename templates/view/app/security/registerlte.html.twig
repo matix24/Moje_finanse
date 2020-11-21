@@ -1,0 +1,38 @@
+{% extends 'layout/app/login.html.twig' %}
+
+{% block title %}Rejestracja{% endblock %}
+
+{% block body %}
+<div class="card-body login-card-body">
+    <p class="login-box-msg">Rejestracja</p>
+
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+
+    {{ form_start(registrationForm) }}
+        <div class="input-group mb-3">
+            {{ form_widget(registrationForm.name) }}
+            <div class="input-group-append"><div class="input-group-text"><span class="fas fa-user-tie"></span></div></div>
+            {{ form_errors(registrationForm.name) }}
+        </div>   
+        <div class="input-group mb-3">
+            {{ form_widget(registrationForm.surname) }}
+            <div class="input-group-append"><div class="input-group-text"><span class="fas fa-user-tie"></span></div></div>
+            {{ form_errors(registrationForm.surname) }}
+        </div>         
+        <div class="input-group mb-3">
+            {{ form_widget(registrationForm.email) }}
+            <div class="input-group-append"><div class="input-group-text"><span class="fas fa-envelope"></span></div></div>
+            {{ form_errors(registrationForm.email) }}
+        </div>
+        <div class="input-group mb-3">
+            {{ form_widget(registrationForm.plainPassword) }}
+            <div class="input-group-append"><div class="input-group-text"><span class="fas fa-lock"></span></div></div>
+            {{ form_errors(registrationForm.plainPassword) }}
+        </div>
+        {{ form_widget(registrationForm.submit) }}
+    {{ form_end(registrationForm) }}
+
+</div>    
+{% endblock %}

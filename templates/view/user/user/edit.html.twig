@@ -1,0 +1,82 @@
+{% extends 'layout/app/app.html.twig' %}
+
+{% block title %}
+	Edycja użytkownika
+{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+
+{% block body %}
+
+	<section class="content-header">
+		<div class="container-fluid">
+			<div class="row mb-2">
+				<div class="col-sm-6">
+					<h1>Edycja użytkownika</h1>
+				</div>
+				<div class="col-sm-6">
+					<ol class="breadcrumb float-sm-right">
+						<li class="breadcrumb-item">
+							<a href="{{ url('app_index') }}">Home</a>
+						</li>
+						<li class="breadcrumb-item">
+							<a href="{{ url('user_index') }}">Lista użytkowników</a>
+						</li>
+						<li class="breadcrumb-item active">Edycja użytkownika</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="content">
+		<div class="row">
+			<div class="col-3"></div>
+			<div class="col-6">
+				<div class="card card-primary card-outline">
+					<div class="card-header">
+						<h3 class="card-title">
+							<i class="fas fa-plus"></i>
+							Edycja użytkownika
+						</h3>
+					</div>
+					<div class="card-body pad table-responsive">
+						{{ form_start(form) }}
+						<div class="form-group">
+							{{ form_label(form.name) }}
+							{{ form_widget(form.name) }}
+							{{ form_errors(form.name) }}
+						</div>
+						<div class="form-group">
+							{{ form_label(form.surname) }}
+							{{ form_widget(form.surname) }}
+							{{ form_errors(form.surname) }}
+						</div>
+						<div class="form-group">
+							{{ form_label(form.email) }}
+							{{ form_widget(form.email) }}
+							{{ form_errors(form.email) }}
+						</div>
+						<div class="form-group">
+							{{ form_label(form.roles) }}
+							{{ form_widget(form.roles) }}
+							{{ form_errors(form.roles) }}
+						</div>
+						{{ form_row(form.is_verified) }}
+						{{ form_row(form.is_disabled) }}
+						{{ form_widget(form.submit) }}
+						{{ form_end(form) }}
+					</div>
+				</div>
+			</div>
+			<div class="col-3"></div>
+		</div>
+	</section>
+
+{% endblock %}
+
+{% block javascripts %}
+	<script src="{{ asset('dep/AdminLTE/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
+	<script src="{{ asset('dep/AdminLTE/plugins/jquery-validation/additional-methods.min.js') }}"></script>
+	<script src="{{ asset('dep/AdminLTE/plugins/jquery-validation/localization/messages_pl.min.js') }}"></script>
+{% endblock %}

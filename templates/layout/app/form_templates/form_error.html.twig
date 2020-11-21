@@ -1,0 +1,5 @@
+{% block form_errors %}
+    {% for error in errors %}
+        <span class="error invalid-feedback" style="display: block">{{ error.message }}</span>
+    {% endfor %}
+{% endblock %}

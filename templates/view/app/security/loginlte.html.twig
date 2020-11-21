@@ -1,0 +1,49 @@
+{% extends 'layout/app/login.html.twig' %}
+
+{% block title %}Login{% endblock %}
+
+{% block body %}
+<div class="card-body login-card-body">
+    <p class="login-box-msg">Zaloguj się</p>
+
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    <form method="post">
+        <div class="input-group mb-3">
+            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
+            <div class="input-group-append"><div class="input-group-text"><span class="fas fa-envelope"></span></div></div>
+        </div>
+        <div class="input-group mb-3">
+            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+            <div class="input-group-append"><div class="input-group-text"><span class="fas fa-lock"></span></div></div>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="icheck-primary">
+                    <input type="checkbox" id="_remember_me" name="_remember_me">
+                    <label for="_remember_me">Zapamiętaj mnie</label>
+                </div>
+            </div>
+            <div class="col-4">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                <button type="submit" class="btn btn-primary btn-block">Zaloguj</button>
+            </div>
+        </div>
+    </form>
+
+{#    <p class="mb-1">
+        <a href="forgot-password.html">Zapomniałem hasła</a>
+    </p>
+    <p class="mb-0">
+        <a href="register.html" class="text-center">Zarejestruj się</a>
+    </p> #}
+
+    {% if app.user %}
+    <p class="mb-0">
+        <div class="mb-3">Zalogowany jako {{ app.user.username }}, <a href="{{ url('app_logout') }}">Wyloguj</a></div>
+    </p>
+    {% endif %}
+</div>
+{% endblock %}
