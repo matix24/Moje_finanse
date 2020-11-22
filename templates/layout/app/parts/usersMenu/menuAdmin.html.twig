@@ -1,9 +1,10 @@
+{# @TODO naprawić menu żeby zawsze było zamknięte #}
 <nav class="mt-2">
 	<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 		<li class="nav-item">
 			<a href="{{ path('app_index') }}" class="nav-link {{ menuItemIsActive(app.request.pathInfo, path('app_index')) }}">
 				<i class="nav-icon fas fa-th"></i>
-				<p>Strona główna</p>
+				<p>Panel finansowy</p>
 			</a>
 		</li>
 		<li class="nav-item has-treeview {{ menuIsOpen(app.request.pathInfo, ['user']) }}">
@@ -24,6 +25,124 @@
 					<a href="{{ url('user_add') }}" class="nav-link {{ menuItemIsActive(app.request.pathInfo, path('user_add')) }}">
 						<i class="fas fa-plus-circle nav-icon"></i>
 						<p>Dodaj użytkownika</p>
+					</a>
+				</li>
+			</ul>
+		</li>
+		<li class="nav-item has-treeview {{ menuIsOpen(app.request.pathInfo, ['context']) }}">
+			<a href="#" class="nav-link {{ aLinkIsActive(app.request.pathInfo, ['context']) }}">
+				<i class="nav-icon fab fa-buromobelexperte"></i>
+				<p>Kontekst
+					<i class="right fas fa-angle-left"></i>
+				</p>
+			</a>
+			<ul class="nav nav-treeview">
+				<li class="nav-item">
+					<a href="{{ path('app_context_index') }}" class="nav-link {{ menuItemIsActive(app.request.pathInfo, path('app_context_index')) }}">
+						<i class="nav-icon fab fa-buromobelexperte	"></i>
+						<p>Kontekst</p>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="{{ url('app_context_add') }}" class="nav-link {{ menuItemIsActive(app.request.pathInfo, path('app_context_add')) }}">
+						<i class="fas fa-plus-circle nav-icon"></i>
+						<p>Dodaj kontekst</p>
+					</a>
+				</li>
+			</ul>
+		</li>
+		<li class="nav-item has-treeview">
+			<a href="#" class="nav-link">
+				<i class="nav-icon fas fa-university"></i>
+				<p>Konta bankowe
+					<i class="right fas fa-angle-left"></i>
+				</p>
+			</a>
+			<ul class="nav nav-treeview">
+				<li class="nav-item">
+					<a href="#" class="nav-link">
+						<i class="nav-icon fas fa-university"></i>
+						<p>Konta bankowe</p>
+					</a>
+				</li>
+			</ul>
+		</li>
+		<li class="nav-item has-treeview">
+			<a href="#" class="nav-link">
+				<i class="nav-icon fas fa-clipboard-list"></i>
+				<p>Kategorie
+					<i class="right fas fa-angle-left"></i>
+				</p>
+			</a>
+			<ul class="nav nav-treeview">
+				<li class="nav-item">
+					<a href="#" class="nav-link">
+						<i class="nav-icon fas fa-clipboard-list"></i>
+						<p>Kategorie</p>
+					</a>
+				</li>
+			</ul>
+		</li>
+		<li class="nav-item has-treeview">
+			<a href="#" class="nav-link">
+				<i class="nav-icon fas fa-money-bill-alt"></i>
+				<p>Rachunki
+					<i class="right fas fa-angle-left"></i>
+				</p>
+			</a>
+			<ul class="nav nav-treeview">
+				<li class="nav-item">
+					<a href="#" class="nav-link">
+						<i class="nav-icon fas fa-money-bill-alt"></i>
+						<p>Rachunki</p>
+					</a>
+				</li>
+			</ul>
+		</li>
+		<li class="nav-item has-treeview">
+			<a href="#" class="nav-link">
+				<i class="nav-icon fas fa-coins"></i>
+				<p>Budżety
+					<i class="right fas fa-angle-left"></i>
+				</p>
+			</a>
+			<ul class="nav nav-treeview">
+				<li class="nav-item">
+					<a href="#" class="nav-link">
+						<i class="nav-icon fas fa-coins"></i>
+						<p>Budżety</p>
+					</a>
+				</li>
+			</ul>
+		</li>
+		<li class="nav-item has-treeview">
+			<a href="#" class="nav-link">
+				<i class="nav-icon fas fa-spinner"></i>
+				<p>Projekty
+					<i class="right fas fa-angle-left"></i>
+				</p>
+			</a>
+			<ul class="nav nav-treeview">
+				<li class="nav-item">
+					<a href="#" class="nav-link">
+						<i class="nav-icon fas fa-spinner"></i>
+						<p>Projekty</p>
+					</a>
+				</li>
+			</ul>
+		</li>
+		<li class="nav-item has-treeview">
+			<a href="#" class="nav-link">
+				<i class="nav-icon fas fa-chart-pie"></i>
+				<p>Raporty
+					<i class="right fas fa-angle-left"></i>
+				</p>
+			</a>
+			<ul class="nav nav-treeview">
+				<li class="nav-item">
+					<a href="#" class="nav-link">
+						<i class="nav-icon fas fa-chart-pie"></i>
+						<p>Raporty</p>
 					</a>
 				</li>
 			</ul>

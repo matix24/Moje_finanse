@@ -17,6 +17,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
+ * @todo
+ * * POPRAWIĆ REJESTRACJĘ NOWYCH UŻYTKOWNIKÓW
+ * * POSPRAWDZAĆ KONTEKSTY DLA RÓŻNYCH UŻYTKOWNIKÓW
+ * * POSPRAWDZAĆ WIDOK MOBILNY
+ *
  * Kontroler odpowiedzialny za zarządzanie użytkownikami systemu
  *
  * Class UserController
@@ -34,7 +39,7 @@ class UserController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('view/user/user/index.html.twig');
+        return $this->render('view/app/user/user/index.html.twig');
     } // end index
 
 
@@ -155,7 +160,7 @@ class UserController extends AbstractController
             return $this->redirectToRoute('user_index');
         }
 
-        return $this->render('view/user/user/add.html.twig', ['form' => $form->createView()]);
+        return $this->render('view/app/user/user/add.html.twig', ['form' => $form->createView()]);
     } // end add
 
     /**
@@ -190,6 +195,6 @@ class UserController extends AbstractController
             return $this->redirectToRoute('user_index');
         }
 
-        return $this->render('view/user/user/edit.html.twig', ['form'=>$form->createView()]);
+        return $this->render('view/app/user/user/edit.html.twig', ['form'=>$form->createView()]);
     }// end edit
 }// end class

@@ -23,6 +23,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 
+/**
+ * @todo
+ * * POSPRAWDZAĆ REJESTRACJE
+ * * REJESTRUJĄCY SIĘ USER POWINIEN DOMYŚLNIE MIEĆ DODANY KONTEKST
+ *
+ * Class RegistrationController
+ * @package App\Controller\Security
+ */
 class RegistrationController extends AbstractController
 {
     private EmailVerifier $emailVerifier;

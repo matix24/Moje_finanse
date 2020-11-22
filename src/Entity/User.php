@@ -72,6 +72,16 @@ class User implements UserInterface
     private ?\Datetime $updated_at = null;
 
     /**
+     * @ORM\OneToMany(targetEntity=Context::class, mappedBy="user")
+     */
+    private $contexts;
+
+    public function __construct()
+    {
+        $this->contexts = new ArrayCollection();
+    }
+
+    /**
      * ID użytkownika
      * @return int|null
      */
@@ -299,4 +309,34 @@ class User implements UserInterface
     /*************************************************
      * HELPERS
      *************************************************/
+
+    /**
+     * @return Collection|Context[]
+     */
+    public function getContexts(): Collection
+    {
+        return $this->contexts;
+    }
+
+    public function addContext(Context $context): self
+    {
+        if (!$this->contexts->contains($context)) {
+            $this->contexts[] = $context;
+            $context->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeContext(Context $context): self
+    {
+        if ($this->contexts->removeElement($context)) {
+            // set the owning side to null (unless already changed)
+            if ($context->getUser() === $this) {
+                $context->setUser(null);
+            }
+        }
+
+        return $this;
+    }
 } // end class

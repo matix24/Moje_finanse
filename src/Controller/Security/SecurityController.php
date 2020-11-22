@@ -7,6 +7,13 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
+/**
+ * @todo
+ * * PO ZALOGOWANIU USTAWIĆ KONTEKST W SESJI
+ *
+ * Class SecurityController
+ * @package App\Controller\Security
+ */
 class SecurityController extends AbstractController
 {
     /**
@@ -34,8 +41,9 @@ class SecurityController extends AbstractController
      * Wylogowanie
      *
      * @Route("/logout", name="app_logout")
+     * @return Response
      */
-    public function logout()
+    public function logout(): Response
     {
 //        throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }

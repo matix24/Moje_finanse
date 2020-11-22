@@ -17,8 +17,28 @@ window.paceOptions = {
 
 
 /************************ MODALE *************************/
+
 /**
- * Obsługa modala do zapytań czy usunąć daną pozycję
+ * Obsługa modala do zapytań czy zarchiwizować daną pozycję, danger => Archiwizuj
+ * @param {string} link
+ * @param {string} title
+ * @param {string} content
+ */
+function modalConfirmArchive(link, title = '', content = '')
+{
+    $('.modal-submit-archive').attr('href', link);
+
+    if (title != '') {
+        $('.modal-confirm-archive-title').text(title);
+    }
+    if (content != '') {
+        $('.modal-confirm-archive-body').html(content);
+    }
+    $('#modal-confirm-archive').modal();
+} // end modalConfirmArchive
+
+/**
+ * Obsługa modala do zapytań czy usunąć daną pozycję, danger => Usuń
  * @param {string} link
  * @param {string} title
  * @param {string} content
@@ -37,7 +57,7 @@ function modalConfirmDelete(link, title = '', content = '')
 } // end modalConfirmDelete
 
 /**
- * Obsługa modala do zapytań czy potwierdzić
+ * Obsługa modala do zapytań czy potwierdzić, success => ok
  * @param {string} link
  * @param {string} title
  * @param {string} content
